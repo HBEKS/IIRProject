@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intelligent Information Retrieval</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .page-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            font-size: 28px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #3498db;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .help-text {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .language-info {
+            background: linear-gradient(135deg, #e8f4fc 0%, #d1e7ff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid #3498db;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+        
+        .language-info strong {
+            color: #3498db;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .language-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .language-info li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 14px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.4;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo h1 {
+            color: #3498db;
+            font-size: 28px;
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 10px;
+        }
+        
+        .logo p {
+            color: #7f8c8d;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffb300;
+            font-size: 14px;
+            color: #5d4037;
+        }
+        
+        .info-box i {
+            color: #ff9800;
+            margin-right: 8px;
+        }
+        
+        .container {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .container:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 30px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+                padding: 10px 20px;
+            }
+            
+            input[type="text"],
+            input[type="number"] {
+                padding: 12px 14px;
+            }
+            
+            button {
+                padding: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-container {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            .logo h1 {
+                font-size: 22px;
+                padding: 8px 16px;
+            }
+            
+            .language-info {
+                padding: 15px;
+            }
+            
+            .language-info li {
+                font-size: 13px;
+                padding-left: 22px;
+            }
+        }
+        
+        .form-group {
+            animation: slideIn 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        button { animation-delay: 0.4s; }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="container">
+            <div class="logo">
+                <h1>IIR System</h1>
+                <p>Intelligent Information Retrieval</p>
+            </div>
+            
+            <h2>Pencarian Artikel Ilmiah</h2>
+            
+            <form action="result.php" method="post">
+                <div class="form-group">
+                    <label for="author">Nama Penulis:</label>
+                    <input type="text" id="author" name="author" required 
+                           placeholder="Contoh: Joko Siswantoro">
+                    <div class="help-text">Masukkan nama penulis lengkap</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="keyword">Keyword:</label>
+                    <input type="text" id="keyword" name="keyword" required 
+                           placeholder="Contoh: optimization, jaringan, machine learning">
+                    <div class="help-text">Masukkan kata kunci pencarian (Indonesia atau Inggris)</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="limit">Jumlah Data:</label>
+                    <input type="number" id="limit" name="limit" value="5" min="1">
+                    <div class="help-text">Masukkan jumlah artikel yang ingin ditampilkan</div>
+                </div>
+                
+                <button type="submit">
+                    <i class="fas fa-search"></i> Cari Artikel
+                </button>
+            </form>
+            
+            <div class="language-info">
+                <strong>Fitur Sistem:</strong>
+                <ul>
+                    <li>1. Deteksi bahasa otomatis (Indonesia/Inggris)</li>
+                    <li>2. Pencarian sinonim (optimization = optimisasi)</li>
+                    <li>3. Similarity scoring menggunakan TF-IDF</li>
+                    <li>4. Tampilan semua artikel penulis</li>
+                    <li>5. Informasi penulis lengkap dengan tooltip</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

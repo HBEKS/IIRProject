@@ -1,0 +1,5 @@
+langdetect
+nltk
+Sastrawi
+requests
+beautifulsoup4
