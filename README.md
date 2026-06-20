@@ -1,4 +1,4 @@
-# 🔍 Intelligent Information Retrieval System for Scientific Articles
+# 🔍 Scholar Scrapper: Intelligent Information Retrieval System for Scientific Articles
 
 An **Intelligent Information Retrieval (IIR)** application that retrieves scientific publications from **Google Scholar** and ranks them using **Natural Language Processing (NLP)**, **TF-IDF**, and **Cosine Similarity**.
 
